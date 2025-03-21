@@ -44,8 +44,7 @@ export default function RootLayout({
     <html lang="en">
         <head>
           <title>Reaper.js docs</title>
-          <script src="https://cdn.jsdelivr.net/gh/edenai/yodabot@e4f753f/embed.js?project=bc54c12e-125f-42c8-99c6-95b067d494d9&provider=google&model=gemini-1.5-flash-8b-latest"></script>
-        </head>
+          <script src="https://cdn.jsdelivr.net/gh/edenai/yodabot@e4f753f/embed.js?project=d9b4d182-9eb0-463b-8121-9290c1831678&provider=openai&model=gpt-4o-mini"></script>        </head>
       <body className={inter.className}>
         {!doc ? <div className="w-full h-screen flex justify-center items-center"><div className="loader"/><Logo/></div>:<div className="flex flex-col w-screen h-screen">
         <Logo/>  
