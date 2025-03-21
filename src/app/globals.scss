@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{
+  --body-bg:#222;
+  --body-text:white;
+  --main:#181818;
+  --main-borders:#972d2d;
+  --main-fg:#fff;
+}
+
+body {
+  @apply bg-[var(--body-bg)] text-[var(--body-text)] flex w-screen h-screen;
+}
+nav{
+ @apply w-max bg-[var(--main)]
+}
+nav a{
+  @apply py-2 px-4 w-full border-b border-dashed border-spacing-5 justify-center flex text-[var(--main-fg)];
+  border-color: var(--main-borders);
+  &.active{
+    color: var(--main-borders);
+  }
+}
+.main-container{
+ @apply w-full h-screen overflow-auto flex flex-col;
+}
+.sub-main{
+  @apply w-full p-4 flex flex-col gap-2;
+  p{
+    
+  }
+  h{
+  &1{
+  @apply text-[1.5rem];
+  line-height: normal;
+  }
+  &2{
+  @apply text-[1.4rem];
+  line-height: normal;
+  }
+  &3{
+  @apply text-[1.3rem];
+  line-height: normal;
+  }
+  &4{
+  @apply text-[1.2rem];
+  line-height: normal;
+  }
+  &5{
+  @apply text-[1.1rem];
+  line-height: normal;
+  }
+  &6{
+  @apply text-[1rem];
+  line-height: normal;
+  }
+  }
+}
+
+header{
+  @apply p-4 w-full text-[var(--main-fg)] border-b border-[var(--main-borders)] border-spacing-5 border-dashed;
+}
+footer{
+  @apply p-4 bg-[var(--main)] w-full text-[var(--main-fg)];
+  
+}
+main{
+  @apply min-h-screen w-full;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
