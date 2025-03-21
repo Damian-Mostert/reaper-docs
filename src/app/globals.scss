@@ -32,10 +32,10 @@ nav a{
   }
 }
 .main-container{
- @apply w-full h-screen overflow-auto flex flex-col;
+ @apply w-full h-screen overflow-auto flex flex-col overflow-x-hidden;
 }
 .sub-main{
-  @apply w-full p-8 flex flex-col gap-2;
+  @apply w-full p-8 flex flex-col gap-2  ;
   p{
     
   }
