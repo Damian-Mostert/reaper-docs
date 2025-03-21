@@ -4,7 +4,7 @@ import Code from "../../components/code";
 export default function Install() {
     return (
         <>
-            <Section title="Database">
+            <Section title="Database" icon="database">
                 <p>Reaper uses an SQL database for queries and data management. Configure your database connection using the environment variables below:</p>
                 <Code lang="ini">
                     {`DB_HOST=127.0.0.1   # Database host
@@ -15,7 +15,7 @@ DB_NAME=            # Database name`}
                 </Code>
             </Section>
 
-            <Section title="Server">
+            <Section title="Server" icon="server">
                 <p><code>PORT</code> sets the runtime port for the server.</p>
                 <Code lang="ini">
                     {`PORT=5050   # Server port`}
@@ -27,7 +27,7 @@ DB_NAME=            # Database name`}
                 </Code>
             </Section>
 
-            <Section title="App">
+            <Section title="App" icon="app">
                 <p>Environment variables prefixed with <code>REAPER_APP_</code> will be accessible in client-side templates.</p>
                 <Code lang="ini">
                     {`REAPER_APP_variable_name=""`}
@@ -37,11 +37,24 @@ DB_NAME=            # Database name`}
     );
 }
 
-function Section({ title, children }) {
+function Section({ title, children, icon }) {
     return (
-        <div className="mb-6">
-            <h3>{title}</h3>
-            {children}
+        <div className="mb-6 flex items-start gap-3">
+            <Icon icon={icon} />
+            <div>
+                <h3>{title}</h3>
+                {children}
+            </div>
         </div>
     );
+}
+
+function Icon({ icon }) {
+    const icons = {
+        database: "💾",
+        server: "🌐",
+        app: "📱",
+    };
+
+    return <span className="text-xl pt-1">{icons[icon]}</span>;
 }
