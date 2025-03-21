@@ -34,7 +34,7 @@ export default function MainRoutes({
 Post(
     "home-page", //endpoint name, this is important
     "/", //end point url
-    "@pagesController.home" //controller and function to use
+    "@pagesController.home" //controller and function to use, controllers are found in "api/controllers" as "api/controllers/{name}".ts
 )
 `}
             </Code>  
@@ -88,9 +88,24 @@ export default function ApiRoutes({
             <p>
                 Now all routes starting here will be prefixed with /api, so /login will be /api/login
             </p>
-            <h3>Using middleware</h3>
+            <h3>Middleware</h3>
+            <p>Middleware can be used to add aditional checks before any controllers get used, you can use the same matching as Get and Post uses to tell it what routes to use</p>
+            <p>For example:</p>
             <Code lang={"tsx"}>
-                {``}
+                {` Middleware(
+"/auth/[...auth]",
+"@authMiddleware",//middleware's name, middleware can be found in "api/middleware" as "api/middleware/{name}".ts
+({//callback
+    Post,
+}:ReaperRoutes)=>{})`}
+            </Code>
+            <p>! Please note -- full routes must still be expressed in middleware</p>
+            <Code lang={"tsx"}>
+                {` Middleware("/auth/[type]","@authMiddleware",({
+    Post,
+}:ReaperRoutes)=>{
+    Post("login-api","/auth/login","@authContoller.login")
+})`}
             </Code>
         </div>
     </>
