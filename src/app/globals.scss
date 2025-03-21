@@ -176,7 +176,7 @@ $yellow:#c21212;
 .loader:after {
   transform: rotate(180deg);
   transform-origin: 50% 99%;
-  animation-delay: 0.5s;
+  animation-delay: 0.25s;
 }
 @keyframes l6 {
   0%    {-webkit-mask-size:0    0  ,0    0  ,0    0  ,auto}
