@@ -5,7 +5,7 @@ export default function Install() {
     return (
         <>
             <Section title="Build" description="Builds the Reaper.js application.">
-                <Command code="npm run build" alternative="npx rprcli build" />
+                <Command code="npm run build" alternative="npx reaperjs build" />
                 <ExampleOutput>
                     {`Reaper.js [2:28:00 PM] ℹ INFO: Starting up dev server...
 Reaper.js [2:28:02 PM] ✔ Server is running on port 5050
@@ -14,28 +14,28 @@ Reaper.js [2:28:12 PM] ⠏ Building server...`}
             </Section>
 
             <Section title="Start" description="Starts a built server.">
-                <Command code="npm start" alternative="npx rprcli start" />
+                <Command code="npm start" alternative="npx reaperjs start" />
                 <ExampleOutput>
                     {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
                 </ExampleOutput>
             </Section>
 
             <Section title="Dev" description="Runs the application in development mode, watching for file changes.">
-                <Command code="npm run dev" alternative="npx rprcli dev" />
+                <Command code="npm run dev" alternative="npx reaperjs dev" />
                 <ExampleOutput>
                     {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
                 </ExampleOutput>
             </Section>
 
             <Section title="Migrate" description="Runs new database migrations.">
-                <Command code="npm run migrate" alternative="npx rprcli migrate" />
+                <Command code="npm run migrate" alternative="npx reaperjs migrate" />
                 <ExampleOutput>
                     {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
                 </ExampleOutput>
             </Section>
 
             <Section title="Rollback" description="Undoes the last migration.">
-                <Command code="npm run rollback" alternative="npx rprcli rollback" />
+                <Command code="npm run rollback" alternative="npx reaperjs rollback" />
                 <ExampleOutput>
                     {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
                 </ExampleOutput>
@@ -43,16 +43,16 @@ Reaper.js [2:28:12 PM] ⠏ Building server...`}
 
             <Section title="Seed" description="Runs database seeders.">
                 <p>To execute all seeders use:</p>
-                <Command code="npm run seed" alternative="npx rprcli seed" />
+                <Command code="npm run seed" alternative="npx reaperjs seed" />
                 <p>To execute a single seeder use:</p>
-                <Command code="npm run seed {name}" alternative="npx rprcli seed {name}" />
+                <Command code="npm run seed {name}" alternative="npx reaperjs seed {name}" />
                 <ExampleOutput>
                     {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
                 </ExampleOutput>
             </Section>
 
             <Section title="Make" description="Creates project resources.">
-                <Command code="npm run make {type} {name}" alternative="npx rprcli make {type} {name}" />
+                <Command code="npm run make {type} {name}" alternative="npx reaperjs make {type} {name}" />
                 <h5>Types</h5>
                 <ul>
                     <li>controller <span className="text-blue-400">(makes a new controller as <span className="text-green-500">"api/controllers/{"{name}"}Controller.ts"</span>)</span></li>
@@ -66,7 +66,7 @@ Reaper.js [2:28:12 PM] ⠏ Building server...`}
                 </ul>
             </Section>
             <Section title="Help" description="Logs list of commands and other tips.">
-                <Command code="npm run help" alternative="npx rprcli help" />
+                <Command code="npm run help" alternative="npx reaperjs help" />
             </Section>
         </>
     );

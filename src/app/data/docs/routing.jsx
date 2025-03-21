@@ -7,7 +7,7 @@ export default function Routing(){
             In "routes/index.ts" all your routes will need to be configured
         </p>
         <Code lang={"tsx"}>
-            {`import { ReaperRoutes } from "rprcli";
+            {`import { ReaperRoutes } from "reaperjs";
 import ApiRoutes from "./api";
 
 export default function MainRoutes({
@@ -54,7 +54,7 @@ Post(
             <h3>Grouping routes</h3>
             <p>Grouping works as follows:</p>
             <Code lang={"tsx"}>
-                {`import { ReaperRoutes } from "rprcli";
+                {`import { ReaperRoutes } from "reaperjs";
 import ApiRoutes from "./api";
 export default function MainRoutes({
     Group,
@@ -67,7 +67,7 @@ export default function MainRoutes({
                 In routes/api.ts
             </p>
             <Code lang={"tsx"}>
-                {`import { ReaperRoutes } from "rprcli";
+                {`import { ReaperRoutes } from "reaperjs";
 export default function ApiRoutes({
     Get,
     Post,

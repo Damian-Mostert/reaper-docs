@@ -15,7 +15,7 @@ export default function Overview(){
         <h3>Installation</h3> <p>To set up a new project from scratch, run the following commands:</p>
         <Code lang="bash">{`mkdir reaperProject
 cd ./reaperProject
-npm i rprcli && npx rprcli init && npm i`}</Code>
+npm i reaperjs && npx reaperjs init && npm i`}</Code>
         <p>
             You will now see the Reaper project structure in your directory.
         </p>
