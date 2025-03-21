@@ -56,5 +56,5 @@ function Icon({ icon }) {
         app: "📱",
     };
 
-    return <span className="text-xl pt-1">{icons[icon]}</span>;
+    return <span className="text-xl pt-1.5">{icons[icon]}</span>;
 }
