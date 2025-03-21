@@ -3,10 +3,6 @@ import Link from "next/link";
 
 export default function Routing(){
     return <>
-        <div className="flex items-center gap-4">
-            <Link className="px-4 rounded-md border" href={"Database"}>Prev</Link>
-            <h1>Routing</h1>
-        </div>        
         <p>
             In "routes/index.ts" all your routes will need to be configured
         </p>

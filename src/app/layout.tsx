@@ -20,13 +20,21 @@ export default function RootLayout({
 }>) {
   const {doc} = useParams();
   const router = useRouter();
+  const pathname = usePathname();
   const [k,setK]=useState(0);
+  const [dir,setDir] = useState<"prev"|"next">("next");
+
   useEffect(()=>{
     if(!doc){
       router.push(`/docs/${Object.keys(docs)[0]}`);
-      setK(k=>k+1);
     }
   },[doc])
+  useEffect(()=>{
+    setK(k=>k+1);
+    document.querySelector(".main-container")?.scrollTo?.({top:0,behavior:"instant"})
+  },[pathname]);
+
+
 
   return (
     <html lang="en">
@@ -37,24 +45,38 @@ export default function RootLayout({
         </head>
       <body className={inter.className}>
         <nav>
-          <Link className="flex items-center gap-2 p-4" href={"/"}>
-            <Image width={30} height={30} alt="reaper.webp" style={{filter:"invert(100%)"}} src="/reaper.webp"></Image>
-            <span>Reaper.js</span>
-          </Link>
+          <Logo/>            
           {Object.keys(docs).map(key=>{
-            return <Link className={key == doc ? "active":""} key={key} href={`/docs/${key}`}>
+            return <Link  className={key == doc ? "active":""} key={key} href={`/docs/${key}`}>
               {key}
             </Link>
           })}
-          <Logo/>            
         </nav>
         <div className="main-container">          
           <main  key={k}>
-             <div className="sub-main animate-in">
-             {children}
+             <div className={`sub-main min-h-screen animate-${dir}`}>
+                <div className="flex items-center gap-4 pb-8">
+                  {Object.keys(docs)[Object.keys(docs).indexOf(doc) - 1] && <Link onClick={()=>setDir("prev")} className="button button-flash" href={Object.keys(docs)[Object.keys(docs).indexOf(doc) - 1]}>{Object.keys(docs)[Object.keys(docs).indexOf(doc) - 1]}</Link>}
+                  
+                  <h1>{doc}</h1>
+                </div>
+                {children}
+                
+                
              </div>
-            <footer>
-              Reaper.js Docs
+            <footer className="flex items-center justify-end">
+                <div className="flex justify-end gap-4">
+                {Object.keys(docs).map((key,i)=>(<div className="flex gap-4" key={key}>
+                  {i>0&&<div className="h-full" style={{width:"1px",background:"currentColor"}}/>}
+                  <div >{key}</div>
+                </div>))}
+                </div>
+               {Object.keys(docs)[Object.keys(docs).indexOf(doc) + 1] && <div className="w-full justify-end flex items-center gap-4">
+               <div className="w-full text-right text-nowrap">Next up</div>      
+               <div className="mt-auto flex justify-end">
+                  <Link onClick={()=>setDir("next")} className="button button-flash" href={Object.keys(docs)[Object.keys(docs).indexOf(doc) + 1]}>{Object.keys(docs)[Object.keys(docs).indexOf(doc) + 1]}</Link>
+                </div>
+               </div>}
             </footer> 
           </main>
         </div>

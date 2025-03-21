@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 :root{
-  --body-bg:#222;
+  --body-bg:#181818;
   --body-text:white;
-  --main:#181818;
+  --main:#222;
   --main-borders:#972d2d;
   --main-fg:#fff;
 }
@@ -13,10 +13,10 @@ body {
   @apply bg-[var(--body-bg)] text-[var(--body-text)] flex w-screen h-screen;
 }
 nav{
- @apply w-max bg-[var(--main)]
+ @apply w-max bg-[var(--main)] shadow-xl;
 }
 nav a{
-  @apply py-2 px-4 w-full border-b border-dashed border-spacing-5 justify-center flex text-[var(--main-fg)];
+  @apply py-2 px-4 w-full border-b border-dashed border-spacing-5 justify-center flex text-[var(--main-fg)] relative z-10;
   border-color: var(--main-borders);
   &.active{
     color: var(--main-borders);
@@ -69,16 +69,71 @@ main{
   }
 }
 
-.animate-in{
+.animate-next{
   @keyframes in {
     from{
       opacity: 0;
-      transform: translateY(-40px);
+      transform: translateX(40px);
     }
     to{
       opacity: 1;
-      transform: translateY(-0px);
+      transform: translateX(-0px);
     }
   }
   animation: in 1s forwards;
+}
+.animate-prev{
+  @keyframes in2 {
+    from{
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(-0px);
+    }
+  }
+  animation: in2 1s forwards;
+}
+$yellow:#c21212;
+.button {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid red;
+  border-radius: 0.6em;
+  color: red;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: 0;
+  }
+}
+.button-flash {
+  // background: $yellow;
+  border-color: $yellow;
+  color: #fff;
+  background: {
+    image: linear-gradient(45deg,$yellow 50%, transparent 50%);
+    position: 100%;
+    size: 400%;
+  }
+  transition: background 500ms ease-in-out;
+  
+  &:hover {
+    background-position: 0;
+  }
 }
