@@ -69,7 +69,7 @@ export default function RootLayout({
                   <h1 className="text-nowrap">{decodeURIComponent(doc)}</h1>
                   {lastDoc && <div className="w-full flex justify-end pr-4">
                     <div className="flex items-center gap-4">
-                      Previos
+                      Previous
                      <Link onClick={()=>setDir("prev")} className="button button-flash" href={lastDoc}>{lastDoc}</Link>
                     </div>
                   </div>}                
