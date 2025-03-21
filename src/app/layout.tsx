@@ -28,7 +28,8 @@ export default function RootLayout({
     if(!doc){
       router.push(`/docs/${Object.keys(docs)[0]}`);
     }
-  },[doc])
+  },[doc]);
+  
   useEffect(()=>{
     setK(k=>k+1);
     document.querySelector(".main-container")?.scrollTo?.({top:0,behavior:"instant"})
@@ -36,7 +37,7 @@ export default function RootLayout({
 
   const lastDoc = Object.keys(docs)[Object.keys(docs).indexOf(decodeURIComponent(doc)) - 1];
   const nextDoc = Object.keys(docs)[Object.keys(docs).indexOf(decodeURIComponent(doc)) + 1];
-  if(!doc)return <div className="w-full h-screen flex justify-center items-center"><div className="loader"/></div>
+
 
   return (
     <html lang="en">
@@ -46,6 +47,7 @@ export default function RootLayout({
           <link rel="apple-touch-icon" href="/reaper.webp" />
         </head>
       <body className={inter.className}>
+        {!doc ? <div className="w-full h-screen flex justify-center items-center"><div className="loader"/></div>:<>        
         <nav>
           <Logo/>            
           {Object.keys(docs).map(key=>{
@@ -80,6 +82,7 @@ export default function RootLayout({
             </footer>} 
           </main>
         </div>
+        </>}
         </body>
     </html>
   );
