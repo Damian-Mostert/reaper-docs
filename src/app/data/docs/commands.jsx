@@ -59,11 +59,10 @@ Reaper.js [2:28:12 PM] ⠏ Building server...`}
                     <li>middleware <span className="text-blue-400">(makes new middleware as <span className="text-green-500">"api/middleware/{"{name}"}Middleware.ts"</span>)</span></li>
                     <li>event <span className="text-blue-400">(makes a new event as <span className="text-green-500">"api/events/{"{name}"}Event.ts"</span>)</span></li>
                     <li>service <span className="text-blue-400">(makes a new service as <span className="text-green-500">"api/services/{"{name}"}Service.ts"</span>)</span></li>
-
-                    <li>model <span className="text-blue-400">(makes new middleware as <span className="text-green-500">"api/middleware/{"{name}"}Middleware.ts"</span>)</span></li>
-                    <li>migration</li>
-                    <li>seeder</li>
-                    <li>view</li>
+                    <li>model <span className="text-blue-400">(makes a new model as <span className="text-green-500">"db/models/{"{name}"}Model.ts"</span>)</span></li>
+                    <li>migration <span className="text-blue-400">(makes new middleware as <span className="text-green-500">"api/middleware/{"{name}"}Middleware.ts"</span>)</span></li>
+                    <li>seeder <span className="text-blue-400">(makes new middleware as <span className="text-green-500">"api/middleware/{"{name}"}Middleware.ts"</span>)</span></li>
+                    <li>view <span className="text-blue-400">(makes new middleware as <span className="text-green-500">"api/middleware/{"{name}"}Middleware.ts"</span>)</span></li>
                 </ul>
             </Section>
             <Section title="Help" description="Logs list of commands and other tips.">

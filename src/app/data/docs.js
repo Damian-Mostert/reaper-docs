@@ -14,6 +14,7 @@ export default {
     Routing:load("routing"),
     Controllers:load("controllers"),
     Middleware:load("middleware"),
+    Services:load("services"),
     Database:load("database"),
     Models:load("models"),
     Migrations:load("migrations"),
