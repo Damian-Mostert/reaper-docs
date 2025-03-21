@@ -16,7 +16,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav>
+          <header>
+              Reaper.js Docs
+          </header>        
+        </nav>
+        <div className="main-container">          
+
+          <main>
+              {children}
+          </main>
+          <footer>
+            Reaper.js Docs
+          </footer> 
+        </div>
+        </body>
     </html>
   );
 }
