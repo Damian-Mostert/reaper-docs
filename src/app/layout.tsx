@@ -47,30 +47,35 @@ export default function RootLayout({
           <link rel="apple-touch-icon" href="/reaper.webp" />
         </head>
       <body className={inter.className}>
-        {!doc ? <div className="w-full h-screen flex justify-center items-center"><div className="loader"/></div>:<>        
-        <nav>
-          <Logo/>            
+        {!doc ? <div className="w-full h-screen flex justify-center items-center"><div className="loader"/><Logo/></div>:<div className="flex flex-col w-screen h-screen">
+        <Logo/>  
+        <div className="p-4 w-full z-10 flex gap-4 items-center" style={{backgroundImage:"linear-gradient(90deg,#111111,#111111,#111111,transparent)"}}>
+          <Image alt="reaper" style={{filter:"invert(100%)"}} width={40} height={50} src={"/reaper.webp"}/>
+          <div className="text-2xl">
+            Reaper.js
+          </div>
+        </div>        
+        <div className="flex w-full h-full">
+        <nav>          
           {Object.keys(docs).map(key=>{
             return <Link  className={key == decodeURIComponent(doc) ? "active":""} key={key} href={`/docs/${key}`}>
               {key}
             </Link>
           })}
         </nav>
-        <div className="main-container">          
-          <main  key={k}>
+        <div className="main-container relative">          
+          <main key={k} className="absolute top-0 left-0 w-full h-full">
              <div className={`sub-main animate-${dir}`}>
                 <div className="flex items-center gap-4 pb-8">
                   <h1 className="text-nowrap">{decodeURIComponent(doc)}</h1>
                   {lastDoc && <div className="w-full flex justify-end">
                     <div className="flex items-center gap-4">
-                      Last document:
+                      Last document
                      <Link onClick={()=>setDir("prev")} className="button button-flash" href={lastDoc}>{lastDoc}</Link>
                     </div>
                   </div>}                
                 </div>
-                {children}
-                
-                
+                {children}                
              </div>
             {nextDoc && <footer className={`flex items-center justify-end animate-${dir}`}>
                <div className="w-full justify-end flex items-center gap-4">
@@ -82,7 +87,8 @@ export default function RootLayout({
             </footer>} 
           </main>
         </div>
-        </>}
+        </div>
+        </div>}
         </body>
     </html>
   );

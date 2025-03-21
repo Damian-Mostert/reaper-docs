@@ -3,14 +3,22 @@ import Link from "next/link";
 
 export default function Overview(){
     return <>
-        <h3>Install</h3>
-        <p>For a full new project run commands as listed bellow:</p>
+        <p>
+            Reaper.js is a powerful TypeScript-based framework designed to streamline backend development. It offers built-in database migrations, seeders, and SQL query utilities, making it easy to manage data efficiently.
+        </p>
+        <p>
+            With native support for TSX and JSX rendering, developers can seamlessly integrate server-side rendering with modern frontend techniques.
+        </p>
+        <p className="pb-16">
+            Packed with essential tools, Reaper.js simplifies the process of building a single, full-featured server, reducing boilerplate while ensuring flexibility and scalability.
+        </p>
+        <h3>Installation</h3> <p>To set up a new project from scratch, run the following commands:</p>
         <Code lang="bash">{`mkdir reaperProject
 cd ./reaperProject
 npm i rprcli && npx rprcli init && npm i`}</Code>
-        <h3>
-            Basic project structure
-        </h3>
+        <p>
+            You will now see the Reaper project structure in your directory.
+        </p>
         <Code lang="bash">
 {`- api
     - controllers #FOR ROUTES CONTROLLERS
