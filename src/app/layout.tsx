@@ -44,8 +44,6 @@ export default function RootLayout({
     <html lang="en">
         <head>
           <title>Reaper.js docs</title>
-          <link rel="icon" href="/reaper.webp" type="image/webp" />
-          <link rel="apple-touch-icon" href="/reaper.webp" />
         </head>
       <body className={inter.className}>
         {!doc ? <div className="w-full h-screen flex justify-center items-center"><div className="loader"/><Logo/></div>:<div className="flex flex-col w-screen h-screen">
