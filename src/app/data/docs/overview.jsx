@@ -27,13 +27,12 @@ npm i reaperjs && npx reaperjs init && npm i`}</Code>
             
             <Code lang="bash">
                 {`- api
-    - controllers #FOR ROUTES CONTROLLERS
-    - middleware #FOR ROUTES CONTROLLERS
-    - services #GENERAL SERVICES
-    - events #SOCKET EVENTS
+    - controllers
+    - middleware
+    - services
+    - events
 - app
     - styles
-        globals.scss
     - views
     - layout.tsx
 - db 

@@ -48,10 +48,10 @@ export default function RootLayout({
       <body className={inter.className}>
         {!doc ? <div className="w-full h-screen flex justify-center items-center"><div className="loader"/><Logo/></div>:<div className="flex flex-col w-screen h-screen">
         <Logo/>  
-        <div className="p-4 w-full z-10 flex gap-4 items-center" style={{backgroundImage:"linear-gradient(90deg,#111111,#111111,#111111,transparent)"}}>
+        <div className="p-4 w-full z-10 flex gap-4 items-center lg:pl-8" style={{backgroundImage:"linear-gradient(90deg,#111111,#111111,#111111,transparent)"}}>
           <Image alt="reaper" style={{filter:"invert(100%)"}} width={40} height={50} src={"/reaper.webp"}/>
-          <div className="text-2xl">
-            Reaper.js <span className="text-red-500 text-sm">[Warning! Unstable, not production ready just yet, still in eary development!]</span>
+          <div className="text-2xl flex items-center w-full gap-4">
+          Reaper.js <span className="text-xs lg:text-lg text-yellow-500 ml-auto bg-black border border-yellow-500 px-4 py-2 font-extrabold rounded-md">Warning! Reaper.js is currenty unstable, it's not production ready just yet, it's still in eary development!</span>
           </div>
         </div>        
         <div className="flex w-full h-full">
@@ -69,7 +69,7 @@ export default function RootLayout({
                   <h1 className="text-nowrap">{decodeURIComponent(doc)}</h1>
                   {lastDoc && <div className="w-full flex justify-end pr-4">
                     <div className="flex items-center gap-4">
-                      Back
+                      Previos
                      <Link onClick={()=>setDir("prev")} className="button button-flash" href={lastDoc}>{lastDoc}</Link>
                     </div>
                   </div>}                

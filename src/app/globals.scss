@@ -36,7 +36,8 @@ nav a{
  @apply w-full h-full overflow-auto flex flex-col overflow-x-hidden;
 }
 .sub-main{
-  @apply w-full p-8 flex flex-col gap-2  ;
+  @apply w-full p-4 lg:p-8 flex flex-col gap-2 ;
+  padding-bottom: 5rem !important;
   p{
     @apply text-[0.8rem] lg:text-[1rem];
   }

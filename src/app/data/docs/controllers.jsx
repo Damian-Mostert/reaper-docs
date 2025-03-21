@@ -107,8 +107,8 @@ export default pageController;`}
             Now that you have an understanding of controllers, you can explore:
         </p>
         <ul>
-            <li><Link href="/docs/routing">Routing Documentation</Link></li>
-            <li><Link href="/docs/middleware">Middleware Documentation</Link></li>
+            <li><Link href="/docs/Routing">Routing Documentation</Link></li>
+            <li><Link href="/docs/Middleware">Middleware Documentation</Link></li>
         </ul>
     </>
 }
