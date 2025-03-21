@@ -53,7 +53,7 @@ export default function RootLayout({
         <div className="p-4 w-full z-10 flex gap-4 items-center" style={{backgroundImage:"linear-gradient(90deg,#111111,#111111,#111111,transparent)"}}>
           <Image alt="reaper" style={{filter:"invert(100%)"}} width={40} height={50} src={"/reaper.webp"}/>
           <div className="text-2xl">
-            Reaper.js <span className="text-red-500 text-sm">[Warning! Unstable, not production ready just yet!]</span>
+            Reaper.js <span className="text-red-500 text-sm">[Warning! Unstable, not production ready just yet, still in eary development!]</span>
           </div>
         </div>        
         <div className="flex w-full h-full">
