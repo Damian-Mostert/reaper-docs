@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import Code from "./components/code";
 import Logo from "./components/logo"
 const inter = Inter({ subsets: ["latin"] });
+import { Analytics } from "@vercel/analytics/react"
 
 export default function RootLayout({
   children,
@@ -89,7 +90,9 @@ export default function RootLayout({
         </div>
         </div>
         </div>}
+        <Analytics />
         </body>
+
     </html>
   );
 }
