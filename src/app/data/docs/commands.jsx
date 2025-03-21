@@ -29,21 +29,39 @@ Reaper.js [2:28:12 PM] ⠏ Building server...`}
 
             <Section title="Migrate" description="Runs new database migrations.">
                 <Command code="npm run migrate" alternative="npx rprcli migrate" />
+                <ExampleOutput>
+                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
+                </ExampleOutput>
             </Section>
 
             <Section title="Rollback" description="Undoes the last migration.">
                 <Command code="npm run rollback" alternative="npx rprcli rollback" />
+                <ExampleOutput>
+                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
+                </ExampleOutput>
             </Section>
 
             <Section title="Seed" description="Runs database seeders.">
+                <p>To execute all seeders use:</p>
                 <Command code="npm run seed" alternative="npx rprcli seed" />
+                <p>To execute a single seeder use:</p>
+                <Command code="npm run seed {name}" alternative="npx rprcli seed {name}" />
+                <ExampleOutput>
+                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
+                </ExampleOutput>
             </Section>
 
             <Section title="Make" description="Creates project resources.">
-                <Command code="npm run make" alternative="npx rprcli make" />
+                <Command code="npm run make {type}" alternative="npx rprcli make {type}" />
+                <ExampleOutput>
+                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
+                </ExampleOutput>
             </Section>
             <Section title="Help" description="Logs list of commands and other tips.">
                 <Command code="npm run help" alternative="npx rprcli help" />
+                <ExampleOutput>
+                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
+                </ExampleOutput>
             </Section>
         </>
     );

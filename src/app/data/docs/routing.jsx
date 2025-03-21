@@ -15,9 +15,7 @@ export default function MainRoutes({
     Post,
     Middleware,
     Group,
-}:ReaperRoutes) {
-}
-`}
+}:ReaperRoutes) {}`}
         </Code>
         <h2>
             Callbacks
