@@ -52,7 +52,7 @@ export default function RootLayout({
         <div className="p-4 w-full z-10 flex gap-4 items-center" style={{backgroundImage:"linear-gradient(90deg,#111111,#111111,#111111,transparent)"}}>
           <Image alt="reaper" style={{filter:"invert(100%)"}} width={40} height={50} src={"/reaper.webp"}/>
           <div className="text-2xl">
-            Reaper.js
+            Reaper.js <span className="text-red-500 text-sm">[Warning! Unstable, not production ready just yet!]</span>
           </div>
         </div>        
         <div className="flex w-full h-full">
@@ -77,7 +77,7 @@ export default function RootLayout({
                 </div>
                 {children}                
              </div>
-            {nextDoc && <footer className={`flex items-center justify-end animate-${dir}`}>
+            {nextDoc && <footer className={`flex items-center fixed bottom-0 left-0 justify-end animate-${dir}`}>
                <div className="w-full justify-end flex items-center gap-4">
                <div className="w-full text-right text-nowrap">Next up</div>      
                <div className="mt-auto flex justify-end">

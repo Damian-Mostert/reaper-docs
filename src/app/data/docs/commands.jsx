@@ -52,16 +52,22 @@ Reaper.js [2:28:12 PM] ⠏ Building server...`}
             </Section>
 
             <Section title="Make" description="Creates project resources.">
-                <Command code="npm run make {type}" alternative="npx rprcli make {type}" />
-                <ExampleOutput>
-                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
-                </ExampleOutput>
+                <Command code="npm run make {type} {name}" alternative="npx rprcli make {type} {name}" />
+                <h5>Types</h5>
+                <ul>
+                    <li>controller <span className="text-blue-400">(makes a new controller as <span className="text-green-500">"api/controllers/{"{name}"}Controller.ts"</span>)</span></li>
+                    <li>middleware <span className="text-blue-400">(makes new middleware as <span className="text-green-500">"api/middleware/{"{name}"}Middleware.ts"</span>)</span></li>
+                    <li>event <span className="text-blue-400">(makes a new event as <span className="text-green-500">"api/events/{"{name}"}Event.ts"</span>)</span></li>
+                    <li>service <span className="text-blue-400">(makes a new service as <span className="text-green-500">"api/services/{"{name}"}Service.ts"</span>)</span></li>
+
+                    <li>model <span className="text-blue-400">(makes new middleware as <span className="text-green-500">"api/middleware/{"{name}"}Middleware.ts"</span>)</span></li>
+                    <li>migration</li>
+                    <li>seeder</li>
+                    <li>view</li>
+                </ul>
             </Section>
             <Section title="Help" description="Logs list of commands and other tips.">
                 <Command code="npm run help" alternative="npx rprcli help" />
-                <ExampleOutput>
-                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
-                </ExampleOutput>
             </Section>
         </>
     );

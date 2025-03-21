@@ -11,6 +11,15 @@
 pre{
   @apply rounded-md shadow-md;
 }
+ul {
+  list-style-type: circle; /* Default is "disc", you can use "circle", "square", or "none" */
+  padding-left: 20px; /* Optional: adds spacing */
+}
+ol {
+  list-style-type: upper-roman; /* Use "decimal", "lower-roman", "upper-roman", etc. */
+  padding-left: 20px; /* Optional: adds spacing */
+}
+
 body {
   @apply bg-[var(--body-bg)] text-[var(--body-text)] flex w-screen h-screen;
 }

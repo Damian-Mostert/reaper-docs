@@ -93,18 +93,30 @@ export default function ApiRoutes({
             <p>For example:</p>
             <Code lang={"tsx"}>
                 {` Middleware(
-"/auth/[...auth]",
+"/auth/[...auth]",//route
 "@authMiddleware",//middleware's name, middleware can be found in "api/middleware" as "api/middleware/{name}".ts
 ({//callback
     Post,
 }:ReaperRoutes)=>{})`}
             </Code>
-            <p>! Please note -- full routes must still be expressed in middleware</p>
+            <p>! Please note -- full routes must still be expressed under middleware, unless its contained in a group.</p>
             <Code lang={"tsx"}>
                 {` Middleware("/auth/[type]","@authMiddleware",({
     Post,
 }:ReaperRoutes)=>{
     Post("login-api","/auth/login","@authContoller.login")
+})`}
+            </Code>
+            <p>(Grouped example)</p>
+            <Code lang={"tsx"}>
+                {`Group("/auth",({
+    Middleware
+}:ReaperRoutes)=>{
+    Middleware("/[type]","@authMiddleware",({
+        Post,
+    }:ReaperRoutes)=>{
+        Post("login-api","/login","@authContoller.login")
+    })
 })`}
             </Code>
         </div>
