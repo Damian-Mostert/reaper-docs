@@ -36,7 +36,7 @@ export default function RootLayout({
 
   const lastDoc = Object.keys(docs)[Object.keys(docs).indexOf(decodeURIComponent(doc)) - 1];
   const nextDoc = Object.keys(docs)[Object.keys(docs).indexOf(decodeURIComponent(doc)) + 1];
-
+  if(!doc)return <div className="w-full h-screen flex justify-center items-center"><div className="loader"/></div>
 
   return (
     <html lang="en">
