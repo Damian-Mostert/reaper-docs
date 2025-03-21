@@ -104,7 +104,7 @@ main{
   }
   animation: in2 1s forwards;
 }
-$yellow:#c21212;
+$yellow:#972d2d;
 .button {
   box-sizing: border-box;
   appearance: none;
@@ -158,7 +158,7 @@ $yellow:#c21212;
 .loader:after {
   content: "";
   grid-area: 1/1;
-  background:#FD135A;
+  background:#972d2d;
   --c1:conic-gradient(from 150deg at top   ,#000 60deg,#0000 0);
   --c2:conic-gradient(from -30deg at bottom,#000 60deg,#0000 0);
   --s:27px calc(27px*0.866);
