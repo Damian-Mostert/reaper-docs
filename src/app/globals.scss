@@ -26,34 +26,28 @@ nav a{
  @apply w-full h-screen overflow-auto flex flex-col;
 }
 .sub-main{
-  @apply w-full p-4 flex flex-col gap-2;
+  @apply w-full p-8 flex flex-col gap-2;
   p{
     
   }
   h{
   &1{
-  @apply text-[1.5rem];
-  line-height: normal;
+  @apply text-[2rem];
   }
   &2{
-  @apply text-[1.4rem];
-  line-height: normal;
+  @apply text-[1.8rem];
   }
   &3{
-  @apply text-[1.3rem];
-  line-height: normal;
+  @apply text-[1.6rem];
   }
   &4{
-  @apply text-[1.2rem];
-  line-height: normal;
+  @apply text-[1.4rem];
   }
   &5{
-  @apply text-[1.1rem];
-  line-height: normal;
+  @apply text-[1.2rem];
   }
   &6{
   @apply text-[1rem];
-  line-height: normal;
   }
   }
 }
@@ -73,4 +67,18 @@ main{
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.animate-in{
+  @keyframes in {
+    from{
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+    to{
+      opacity: 1;
+      transform: translateY(-0px);
+    }
+  }
+  animation: in 1s forwards;
 }

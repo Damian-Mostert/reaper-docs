@@ -7,8 +7,10 @@ import "./globals.scss";
 import docs from "./data/docs";
 import Link from "next/link";
 import Image from "next/image";
-import { useParams, usePathname } from "next/navigation";
-
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import Code from "./components/code";
+import Logo from "./components/logo"
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -17,6 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const {doc} = useParams();
+  const router = useRouter();
+  const [k,setK]=useState(0);
+  useEffect(()=>{
+    if(!doc){
+      router.push(`/docs/${Object.keys(docs)[0]}`);
+      setK(k=>k+1);
+    }
+  },[doc])
 
   return (
     <html lang="en">
@@ -27,25 +37,26 @@ export default function RootLayout({
         </head>
       <body className={inter.className}>
         <nav>
-          <header className="text-xl text-nowrap flex items-center w-max gap-4">
-            <Image width={30} height={30} alt="Reaper.webp" src="/reaper.webp" style={{filter:"invert(100%)"}}/>
-              Reaper.js Docs
-          </header>        
+          <Link className="flex items-center gap-2 p-4" href={"/"}>
+            <Image width={30} height={30} alt="reaper.webp" style={{filter:"invert(100%)"}} src="/reaper.webp"></Image>
+            <span>Reaper.js</span>
+          </Link>
           {Object.keys(docs).map(key=>{
             return <Link className={key == doc ? "active":""} key={key} href={`/docs/${key}`}>
               {key}
             </Link>
           })}
+          <Logo/>            
         </nav>
         <div className="main-container">          
-          <main>
-             <div className="sub-main">
+          <main  key={k}>
+             <div className="sub-main animate-in">
              {children}
              </div>
+            <footer>
+              Reaper.js Docs
+            </footer> 
           </main>
-          <footer>
-            Reaper.js Docs
-          </footer> 
         </div>
         </body>
     </html>
