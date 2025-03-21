@@ -31,56 +31,68 @@ export default function MainRoutes({
                 {`Get(
     "home-page", //endpoint name, this is important
     "/", //end point url
-    "@pagesController.home" //controller to use
+    "@pagesController.home" //controller and function to use
 )
 Post(
     "home-page", //endpoint name, this is important
     "/", //end point url
-    "@pagesController.home" //controller to use
+    "@pagesController.home" //controller and function to use
 )
 `}
             </Code>  
-            Example using a slug
+            <h5>Example using a slug</h5>
+            <p>
+                Using {"[slug]"} in the url will capture the a slug
+            </p>
             <Code lang={"tsx"}>
                 {`Get("home-page","/url/[slug]","@pagesController.home")`}
             </Code>  
-            Example using a full sub pathname as a slug
+            <p>
+            Using {"[...slug]"} will take the rest of that url and convert it to a slug
+            </p>
             <Code lang={"tsx"}>
                 {`Get("home-page","/url/[...slug]","@pagesController.home")`}
             </Code>  
             <h3>Grouping routes</h3>
-            <p>
-                In "routes/index.ts" all your routes will need to be configured
-            </p>
+            <p>Grouping works as follows:</p>
             <Code lang={"tsx"}>
                 {`import { ReaperRoutes } from "rprcli";
 import ApiRoutes from "./api";
-
 export default function MainRoutes({
-    Get,
-    Post,
-    Middleware,
     Group,
 }:ReaperRoutes) {
-}
-    `}
+    //api's
+    Group("/api",ApiRoutes)
+}`}
             </Code>
-            <h3>Using middleware</h3>
             <p>
-                In "routes/index.ts" all your routes will need to be configured
+                In routes/api.ts
             </p>
-        <Code lang={"tsx"}>
+            <Code lang={"tsx"}>
                 {`import { ReaperRoutes } from "rprcli";
-import ApiRoutes from "./api";
-
-export default function MainRoutes({
+export default function ApiRoutes({
     Get,
     Post,
     Middleware,
     Group,
 }:ReaperRoutes) {
+    Post("login","/login","@userController.login")
+    Middleware("/auth/[...auth]","@authMiddleware",({
+        Post,
+    }:ReaperRoutes)=>{
+        Post("logout","/logout","@userController.logout")
+        Post("user","/user","@userController.details")
+    })
 }
-    `}
+    
+`}
+            </Code>
+            <p>
+                Now all routes starting here will be prefixed with /api, so /login will be /api/login
+            </p>
+            <h3>Using middleware</h3>
+            <Code lang={"tsx"}>
+                {``}
             </Code>
         </div>
     </>

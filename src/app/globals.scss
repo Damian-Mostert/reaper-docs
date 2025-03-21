@@ -16,10 +16,19 @@ nav{
  @apply w-max bg-[var(--main)] shadow-xl;
 }
 nav a{
-  @apply py-2 px-4 w-full border-b border-dashed border-spacing-5 justify-center flex text-[var(--main-fg)] relative z-10;
-  border-color: var(--main-borders);
+  @apply py-2 px-4 w-full justify-center flex text-[var(--main-fg)] relative z-10;
+  &::after{
+    content: "";
+    @apply absolute left-0 top-full;
+    width: 100%;
+    height: 1px;
+    background-color: var(--main-borders);
+  }
   &.active{
     color: var(--main-borders);
+    background-color:  #00000040;
+    backdrop-filter: opacity(50%);
+    -webkit-backdrop-filter: opacity(50%)
   }
 }
 .main-container{
@@ -56,7 +65,7 @@ header{
   @apply p-4 w-full text-[var(--main-fg)] border-b border-[var(--main-borders)] border-spacing-5 border-dashed;
 }
 footer{
-  @apply p-4 bg-[var(--main)] w-full text-[var(--main-fg)];
+  @apply p-4 w-full text-[var(--main-fg)];
   
 }
 main{
@@ -73,7 +82,7 @@ main{
   @keyframes in {
     from{
       opacity: 0;
-      transform: translateX(40px);
+      transform: translateX(100px);
     }
     to{
       opacity: 1;
@@ -86,7 +95,7 @@ main{
   @keyframes in2 {
     from{
       opacity: 0;
-      transform: translateX(-40px);
+      transform: translateX(-100px);
     }
     to{
       opacity: 1;
@@ -115,6 +124,7 @@ $yellow:#c21212;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  text-wrap: nowrap;
 
   &:hover,
   &:focus {
@@ -136,4 +146,46 @@ $yellow:#c21212;
   &:hover {
     background-position: 0;
   }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 74px;
+  height: calc(27px*0.866 + 6px);
+  display: grid;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  background:#FD135A;
+  --c1:conic-gradient(from 150deg at top   ,#000 60deg,#0000 0);
+  --c2:conic-gradient(from -30deg at bottom,#000 60deg,#0000 0);
+  --s:27px calc(27px*0.866);
+  clip-path: polygon(17px 0,calc(100% - 17px) 0,100% 100%,0 100%);
+  -webkit-mask:
+    var(--c1) left  6px top 4px,
+    var(--c2) center,
+    var(--c1) right 6px top 4px,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  -webkit-mask-repeat:no-repeat;
+  animation: l6 1s infinite both;
+}
+.loader:after {
+  transform: rotate(180deg);
+  transform-origin: 50% 99%;
+  animation-delay: 0.5s;
+}
+@keyframes l6 {
+  0%    {-webkit-mask-size:0    0  ,0    0  ,0    0  ,auto}
+  8.33% {-webkit-mask-size:var(--s),0    0  ,0    0  ,auto}
+  16.67%{-webkit-mask-size:var(--s),var(--s),0    0  ,auto}
+  25%,
+  50%   {-webkit-mask-size:var(--s),var(--s),var(--s),auto}
+  58.33%{-webkit-mask-size:0    0  ,var(--s),var(--s),auto}
+  66.67%{-webkit-mask-size:0    0  ,0    0  ,var(--s),auto}
+  75%,
+  100%  {-webkit-mask-size:0    0  ,0    0  ,0    0  ,auto}
 }

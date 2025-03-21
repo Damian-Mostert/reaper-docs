@@ -1,21 +1,26 @@
-import Database from "./docs/database";
-import Routing from "./docs/routing";
-import Overview from "./docs/overview";
-import Controllers from "./docs/controllers";
-import Middleware from "./docs/middleware";
-import Models from "./docs/models";
-import Migrations from "./docs/migrations";
-import Seeders from "./docs/seeders";
+import dynamic from "next/dynamic";
+function Loader(){
+    return <div className="w-full h-screen flex justify-center items-center">
+            <div className="loader"></div>
+    </div>
+}
+
+const load = (path) => dynamic(() => import(`./docs/${path}`), { loading: () => <Loader /> });
 
 export default {
-    Overview,
-    Database,
-    Routing,
-    Controllers,
-    Middleware,
-    Models,
-    Models,
-    Migrations,
-    Seeders
+    Overview:load("overview"),
+    Commands:load("commands"),
+    Enviroment:load("env"),
+    Routing:load("routing"),
+    Controllers:load("controllers"),
+    Middleware:load("middleware"),
+    Database:load("database"),
+    Models:load("models"),
+    Migrations:load("migrations"),
+    Seeders:load("seeders"),
+    Events:load("events"),
+    Templates:load("templates"),
+    "Template api calls":load("templateApiCalls"),
+    "Template routing":load("templateRouting"),
 
-}
+};

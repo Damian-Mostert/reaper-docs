@@ -18,7 +18,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const {doc} = useParams();
+  const {doc}:any = useParams();
   const router = useRouter();
   const pathname = usePathname();
   const [k,setK]=useState(0);
@@ -34,6 +34,8 @@ export default function RootLayout({
     document.querySelector(".main-container")?.scrollTo?.({top:0,behavior:"instant"})
   },[pathname]);
 
+  const lastDoc = Object.keys(docs)[Object.keys(docs).indexOf(decodeURIComponent(doc)) - 1];
+  const nextDoc = Object.keys(docs)[Object.keys(docs).indexOf(decodeURIComponent(doc)) + 1];
 
 
   return (
@@ -47,37 +49,35 @@ export default function RootLayout({
         <nav>
           <Logo/>            
           {Object.keys(docs).map(key=>{
-            return <Link  className={key == doc ? "active":""} key={key} href={`/docs/${key}`}>
+            return <Link  className={key == decodeURIComponent(doc) ? "active":""} key={key} href={`/docs/${key}`}>
               {key}
             </Link>
           })}
         </nav>
         <div className="main-container">          
           <main  key={k}>
-             <div className={`sub-main min-h-screen animate-${dir}`}>
+             <div className={`sub-main animate-${dir}`}>
                 <div className="flex items-center gap-4 pb-8">
-                  {Object.keys(docs)[Object.keys(docs).indexOf(doc) - 1] && <Link onClick={()=>setDir("prev")} className="button button-flash" href={Object.keys(docs)[Object.keys(docs).indexOf(doc) - 1]}>{Object.keys(docs)[Object.keys(docs).indexOf(doc) - 1]}</Link>}
-                  
-                  <h1>{doc}</h1>
+                  <h1 className="text-nowrap">{decodeURIComponent(doc)}</h1>
+                  {lastDoc && <div className="w-full flex justify-end">
+                    <div className="flex items-center gap-4">
+                      Last document:
+                     <Link onClick={()=>setDir("prev")} className="button button-flash" href={lastDoc}>{lastDoc}</Link>
+                    </div>
+                  </div>}                
                 </div>
                 {children}
                 
                 
              </div>
-            <footer className="flex items-center justify-end">
-                <div className="flex justify-end gap-4">
-                {Object.keys(docs).map((key,i)=>(<div className="flex gap-4" key={key}>
-                  {i>0&&<div className="h-full" style={{width:"1px",background:"currentColor"}}/>}
-                  <div >{key}</div>
-                </div>))}
-                </div>
-               {Object.keys(docs)[Object.keys(docs).indexOf(doc) + 1] && <div className="w-full justify-end flex items-center gap-4">
+            {nextDoc && <footer className={`flex items-center justify-end animate-${dir}`}>
+               <div className="w-full justify-end flex items-center gap-4">
                <div className="w-full text-right text-nowrap">Next up</div>      
                <div className="mt-auto flex justify-end">
-                  <Link onClick={()=>setDir("next")} className="button button-flash" href={Object.keys(docs)[Object.keys(docs).indexOf(doc) + 1]}>{Object.keys(docs)[Object.keys(docs).indexOf(doc) + 1]}</Link>
+                  <Link onClick={()=>setDir("next")} className="button button-flash" href={nextDoc}>{nextDoc}</Link>
                 </div>
-               </div>}
-            </footer> 
+               </div>
+            </footer>} 
           </main>
         </div>
         </body>

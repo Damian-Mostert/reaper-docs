@@ -2,7 +2,7 @@ import Code from "@/app/components/code";
 import Link from "next/link";
 
 export default function Overview(){
-    return <div className="flex flex-col min-h-screen">
+    return <>
         <h3>Install</h3>
         <p>For a full new project run commands as listed bellow:</p>
         <Code lang="bash">{`mkdir reaperProject
@@ -34,5 +34,5 @@ npm i rprcli && npx rprcli init && npm i`}</Code>
 `}
         </Code>
         
-    </div>
+    </>
 }
