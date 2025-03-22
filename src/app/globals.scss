@@ -46,14 +46,18 @@ nav a{
     opacity: 0;
     filter:brightness(0%) sepia(100%);
   }
+  90%{
+    opacity: 1;
+    filter:brightness(100%) sepia(0%);
+  }
   to{
     opacity: 1;
     filter:brightness(100%) sepia(0%);
   }
 }
 opacity: 0;
-animation: main-in 1s forwards;
-animation-delay: 1s;
+animation: main-in 0.5s forwards;
+animation-delay: 1.5s;
 
 }
 .sub-main{
