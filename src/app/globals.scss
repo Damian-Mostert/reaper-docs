@@ -138,12 +138,12 @@ main{
   }
   animation: in2 1s forwards;
 }
-$yellow:#972d2d;
+$yellow:var(--main-borders);
 .button {
   box-sizing: border-box;
   appearance: none;
   background-color: transparent;
-  border: 2px solid red;
+  border: 2px solid $yellow;
   border-radius: 0.6em;
   cursor: pointer;
   display: flex;
@@ -166,7 +166,7 @@ $yellow:#972d2d;
 }
 .button-flash {
   // background: $yellow;
-  border-color: $yellow;
+  border-color: var(--main-borders);
   color: var(--body-text); /* Initial text color */;
   mix-blend-mode: difference;
   background: {
