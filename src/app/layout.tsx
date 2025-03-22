@@ -104,7 +104,7 @@ function Main({children}: Readonly<{
 				<Logo/> 
 				<div className="p-4 w-full z-10 flex flex-wrap lg:flex-nowrap gap-4 items-center lg:pl-8" style={{backgroundImage:"linear-gradient(90deg,var(--main),var(--main),var(--main),transparent)"}}>
 					<div className="text-2xl flex items-center w-full gap-4">
-					<Image alt="reaper" style={{filter:theme == "dark"?"invert(100%)":""}} width={40} height={50} src={"/reaper.webp"}/>
+					<Image onClick={()=>router.push("/")} alt="reaper" style={{filter:theme == "dark"?"invert(100%)":"",cursor:"pointer"}} width={40} height={50} src={"/reaper.webp"}/>
 					Reaper.js
 					<div style={{
 							borderColor:"var(--body-bg)",
@@ -148,7 +148,7 @@ function Main({children}: Readonly<{
 								{lastDoc && <div className="w-full flex justify-end pr-4">
 									<div className="flex items-center gap-4">
 										Previous
-										<Link onClick={()=>setDir("prev")} className="button button-flash" href={lastDoc}>{prevNav && `${prevNav} | `}{lastDoc.split("/")[lastDoc.split("/").length-1]}</Link>
+										<Link onClick={()=>setDir("prev")} className="button button-flash" href={lastDoc}>{prevNav && `${prevNav} ⮕ `}{lastDoc.split("/")[lastDoc.split("/").length-1]}</Link>
 									</div>
 								</div>} 
 							</div>
@@ -156,9 +156,9 @@ function Main({children}: Readonly<{
 						</div>
 						{nextDoc && <footer className={`flex items-center fixed bottom-0 -left-20 justify-end animate-${dir}`}>
 							<div className="w-full justify-end flex items-center gap-4">
-							<div className="w-full text-right text-nowrap">Next up</div> 
+							<div className="w-full text-right text-nowrap" style={{color:"var(--body-text)"}}>Next up</div> 
 							<div className="mt-auto flex justify-end">
-								<Link onClick={()=>setDir("next")} className="button button-flash" href={nextDoc}>{nextNav && `${nextNav} | `}{nextDoc.split("/")[nextDoc.split("/").length-1]}</Link>
+								<Link onClick={()=>setDir("next")} className="button button-flash" href={nextDoc}>{nextNav && `${nextNav} ⮕ `}{nextDoc.split("/")[nextDoc.split("/").length-1]}</Link>
 								</div>
 							</div>
 						</footer>} 
