@@ -34,8 +34,9 @@ const ColoredCode = ({ code, codeStyle, preStyle }: { code: string, codeStyle: a
             key={index}
             style={{
               //color: colors[index],
+              color:"transparent",
               transition: "color 5s",
-              animation: `slideIn  ${index * 0.01}s  ease-out ${index * 0.01}s infinite`, // Apply the slide-in animation with staggered delay
+              animation: `slideIn  0.4s  ease-out ${index * 0.001}s infinite`, // Apply the slide-in animation with staggered delay
             }}
           >
             {char}
