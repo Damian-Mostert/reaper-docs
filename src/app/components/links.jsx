@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
-export default function Links({ docs }) {
-  const { doc } = useParams();
+export default function Links({ docs:DOCS }) {
+  const { doc,v } = useParams();
+  const docs = DOCS[v];
+
   const [open, setOpen] = useState(null);
 
   // Automatically open the tab corresponding to the current doc
@@ -26,7 +28,7 @@ export default function Links({ docs }) {
         <div className="relative flex flex-col mb-4" key={KEY}>
           {/* Category header with hover effect */}
           <div
-            className="w-full p-3 cursor-pointer text-white hover:bg-[#11111170] rounded-lg flex justify-between items-center"
+            className="w-full p-3 cursor-pointer hover:bg-[#11111130] rounded-lg flex justify-between items-center"
             onClick={() => setOpen(KEY === open ? null : KEY)}
           >
             <span className="font-semibold text-lg">{KEY}</span>
@@ -56,12 +58,12 @@ export default function Links({ docs }) {
             <div className="w-full pl-4 p-2 space-y-2">
               {Object.keys(docs[KEY]).map((url) => (
                 <Link
-                  key={url}
-                  className={`block p-2 text-sm transition-colors text-gray-300`}
+                  key={`/docs/${v}/${KEY}/${url}`}
+                  className={`block p-2 text-sm transition-colors`}
                   style={{
                     ...url === decodeURIComponent(doc)?{color:"var(--main-borders)"}:{}
                   }}
-                  href={url}
+                  href={`/docs/${v}/${KEY}/${url}`}
                 >
                   {url}
                 </Link>

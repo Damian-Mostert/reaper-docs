@@ -70,7 +70,7 @@ export default function Logo(){
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠿⠿⠶⠶⠤⠤⠶⠶⠒⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`.replace(/⠀/g," ")}</code></pre>  
     </div>
     <div className="absolute w-screen h-screen" style={{
-        backgroundImage:"linear-gradient(#00000090,transparent,transparent)"
+        backgroundImage:"linear-gradient(var(--body-bg),transparent,transparent)"
     }}>
 
     </div>

@@ -8,6 +8,7 @@ function Loader(){
 const load = (path) => dynamic(() => import(`./docs/${path}`), { loading: () => <Loader /> });
 
 const schema = {
+   fire:{
     Welcome:{
         Overview:load("overview"),
         Commands:load("commands"),
@@ -33,13 +34,22 @@ const schema = {
         "Template api calls":load("templateApiCalls"),
         "Template routing":load("templateRouting"),
     }
+   },
+   syth:{
+    Frontend:{
+        Templates:load("templates"),
+        "Template api calls":load("templateApiCalls"),
+        "Template routing":load("templateRouting"),
+    }
+   },
+   syth2:{
+    Frontend:{
+        Templates:load("templates"),
+        "Template api calls":load("templateApiCalls"),
+        "Template routing":load("templateRouting"),
+    }
+   }
 };
 
 export default schema;
-const base = {};
-Object.keys(schema).map(key=>{
-    Object.keys(schema[key]).map(k=>{
-        base[k] = schema[key][k];
-    })
-})
-export {base};
+

@@ -1,12 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root{
+body[theme="dark"]{
   --body-bg:#181818;
   --body-text:white;
   --main:#222;
   --main-borders:#972d2d;
-  --main-fg:#fff;
+  --main-fg:#7b7979;
+}
+body[theme="light"]{
+  --body-bg:#cccccc;
+  --body-text:rgb(36, 36, 36);
+  --main:#b3b3b3;
+  --main-borders:#972d2d;
+  --main-fg:#3e3e3e;
 }
 pre{
   @apply rounded-md shadow-md;
@@ -118,7 +125,6 @@ $yellow:#972d2d;
   background-color: transparent;
   border: 2px solid red;
   border-radius: 0.6em;
-  color: red;
   cursor: pointer;
   display: flex;
   align-self: center;
@@ -135,14 +141,14 @@ $yellow:#972d2d;
 
   &:hover,
   &:focus {
-    color: #fff;
     outline: 0;
   }
 }
 .button-flash {
   // background: $yellow;
   border-color: $yellow;
-  color: #fff !important;
+  color: white; /* Initial text color */;
+  mix-blend-mode: difference;
   background: {
     image: linear-gradient(45deg,$yellow 50%, transparent 50%);
     position: 100%;
@@ -202,4 +208,23 @@ $yellow:#972d2d;
   color: white;
   background: repeating-linear-gradient(45deg, var(--a), var(--a) 12px, var(--b) 12px, var(--b) 24px) !important;
   @apply border-2 border-yellow-500 px-4 py-2 font-extrabold rounded-md;
+}
+.menu{
+  &:hover{
+    .menu-items{
+      display: flex !important;
+    }
+  }
+  &-items{
+    @keyframes menu {
+      from{
+        opacity: 0;
+      }
+      to{
+        opacity: 1;
+      }
+    }
+    animation: menu 0.5s forwards;
+    @apply hidden;    
+  }
 }
