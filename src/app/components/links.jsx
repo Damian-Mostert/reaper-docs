@@ -36,7 +36,7 @@ export default function Links({ docs }) {
                 open === KEY ? "rotate-180" : "rotate-0"
               }`}
               style={{
-                ...open?{color:"var(--main-borders)"}:{}
+                ...open == KEY?{color:"var(--main-borders)"}:{}
               }}
               fill="none"
               viewBox="0 0 24 24"
