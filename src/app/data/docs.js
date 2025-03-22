@@ -9,7 +9,7 @@ const load = (path) => dynamic(() => import(`./docs/${path}`), { loading: () => 
 
 const schema = {
    fire:{
-    Welcome:{
+    Basics:{
         Overview:load("overview"),
         Commands:load("commands"),
         Enviroment:load("env"),
