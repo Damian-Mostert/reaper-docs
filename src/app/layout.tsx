@@ -52,7 +52,7 @@ export default function RootLayout({
         <div className="p-4 w-full z-10 flex gap-4 items-center lg:pl-8" style={{backgroundImage:"linear-gradient(90deg,#111111,#111111,#111111,transparent)"}}>
           <Image alt="reaper" style={{filter:"invert(100%)"}} width={40} height={50} src={"/reaper.webp"}/>
           <div className="text-2xl flex items-center w-full gap-4">
-          Reaper.js <span className="text-xs lg:text-lg text-yellow-500 ml-auto bg-black border border-yellow-500 px-4 py-2 font-extrabold rounded-md">Warning! Reaper.js is currenty unstable, it's not production ready just yet, it's still in eary development!</span>
+          Reaper.js <span className="text-xs lg:text-sm text-stone-800 ml-auto bg-yellow-400 border-2 border-yellow-500 px-4 py-2 font-extrabold rounded-md">Heads up! Reaper.js is still in early development and a bit unstable, so it’s not quite ready for production just yet. Stay tuned for updates!</span>
           </div>
           <a href="https://www.buymeacoffee.com/damian_" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{maxHeight:"50px",height: "50px !important",width: "217px !important"}} /></a>        </div>        
         <div className="flex w-full h-full">
