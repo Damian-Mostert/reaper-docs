@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const getRandomColor = () => {
-  return `hsl(${Math.random() * 360}, 100%)`;
+  return `hsl(${Math.random() * 360}, 100%, 70%)`;
 };
 
 const ColoredCode = ({ code,codeStyle,preStyle }: { code: string,codeStyle:any,preStyle:any }) => {
