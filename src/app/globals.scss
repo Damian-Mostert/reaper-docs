@@ -24,10 +24,10 @@ body {
   @apply bg-[var(--body-bg)] text-[var(--body-text)] flex w-screen h-screen;
 }
 nav{
- @apply hidden lg:block h-full w-max bg-[var(--main)] shadow-xl min-w-[250px];
+ @apply hidden lg:block h-full w-max bg-[var(--main)] shadow-xl;
 }
 nav a{
-  @apply w-full justify-center flex text-[var(--main-fg)] relative z-10 text-nowrap p-3;
+  @apply w-full flex text-[var(--main-fg)] relative z-10 text-nowrap;
   &.active{
     color: var(--main-borders);
   }
@@ -38,6 +38,11 @@ nav a{
 .sub-main{
   @apply w-full p-4 lg:p-8 flex flex-col gap-2 ;
   padding-bottom: 5rem !important;
+  a{
+    &:hover{
+      color:var(--main-borders)
+    }
+  }
   p{
     @apply text-[0.8rem] lg:text-[1rem];
   }

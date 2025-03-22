@@ -6,3 +6,4 @@ export default function Install(){
 
     </>
 }
+Install.parentCategory = "Database"

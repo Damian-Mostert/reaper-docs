@@ -100,3 +100,5 @@ function ExampleOutput({ children }) {
         </>
     );
 }
+
+Install.parentCategory = "Overview"

@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-export default function Install(){
+export default function Events(){
     return <>
         Comming soon...
     </>
 }
+Events.parentCategory = "Routing"

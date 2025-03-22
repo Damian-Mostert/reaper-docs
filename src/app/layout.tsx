@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 
-import docs from "./data/docs";
+import docs,{base} from "./data/docs";
 import Link from "next/link";
 import Image from "next/image";
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -13,7 +13,7 @@ import Code from "./components/code";
 import Logo from "./components/logo"
 const inter = Inter({ subsets: ["latin"] });
 import { Analytics } from "@vercel/analytics/react"
-
+import Links from "./components/links";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +27,7 @@ export default function RootLayout({
 
   useEffect(()=>{
     if(!doc){
-      router.push(`/docs/${Object.keys(docs)[0]}`);
+      router.push(`/docs/${Object.keys(base)[0]}`);
     }
   },[doc]);
   
@@ -36,8 +36,8 @@ export default function RootLayout({
     document.querySelector(".main-container")?.scrollTo?.({top:0,behavior:"instant"})
   },[pathname]);
 
-  const lastDoc = Object.keys(docs)[Object.keys(docs).indexOf(decodeURIComponent(doc)) - 1];
-  const nextDoc = Object.keys(docs)[Object.keys(docs).indexOf(decodeURIComponent(doc)) + 1];
+  const lastDoc = Object.keys(base)[Object.keys(base).indexOf(decodeURIComponent(doc)) - 1];
+  const nextDoc = Object.keys(base)[Object.keys(base).indexOf(decodeURIComponent(doc)) + 1];
 
 
   return (
@@ -53,20 +53,15 @@ export default function RootLayout({
           <Image alt="reaper" style={{filter:"invert(100%)"}} width={40} height={50} src={"/reaper.webp"}/>
           <div className="text-2xl flex items-center w-full gap-4">
           Reaper.js <span 
-  className="text-xs lg:text-sm ml-auto tape"
->
-🚧 Heads up! Reaper.js is still in early development and a bit unstable, so it’s not quite ready for production just yet. Stay tuned for updates!
-</span>
-
+                      className="text-xs lg:text-sm ml-auto tape"
+                    >
+                    🚧 Heads up! Reaper.js is still in early development and a bit unstable, so it’s not quite ready for production just yet. Stay tuned for updates!
+                    </span>
           </div>
           <a href="https://www.buymeacoffee.com/damian_" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{maxHeight:"45px",height: "45px !important",width: "217px !important"}} /></a>        </div>        
         <div className="flex w-full h-full">
         <nav>          
-          {Object.keys(docs).map(key=>{
-            return <Link  className={key == decodeURIComponent(doc) ? "active":""} key={key} href={`/docs/${key}`}>
-              {key}
-            </Link>
-          })}
+          <Links docs={docs}/>
         </nav>
         <div className="main-container relative">          
           <main key={k} className="absolute top-0 left-0 w-full h-full">
@@ -100,3 +95,4 @@ export default function RootLayout({
     </html>
   );
 }
+

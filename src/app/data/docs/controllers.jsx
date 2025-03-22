@@ -43,21 +43,81 @@ const pageController: Controller = {
 export default pageController;`}
         </Code>
 
-        <h2>🔹 Controller Methods</h2>
+        <h2>🔹 ReaperRequest Class</h2>
         <p>
-            Each controller method is responsible for handling specific routes. It takes the <code>request</code> and <code>response</code> objects as parameters and can either render a view or return data in different formats (like JSON).
+            The <code>ReaperRequest</code> class is a wrapper around the incoming request, providing structured access to request parameters, authentication, and headers.
         </p>
+        <ul>
+            <li><strong>headers()</strong>: Retrieves the request headers.</li>
+            <li><strong>cookies()</strong>: Retrieves the cookies from the request.</li>
+            <li><strong>user()</strong>: Attempts to extract user authentication details from the request headers.</li>
+            <li><strong>params</strong>: Stores route parameters.</li>
+            <li><strong>data</strong>: Contains the request body (for POST requests) or query parameters (for GET requests).</li>
+        </ul>
         <Code lang={"tsx"}>
-            {`async home(request, response) {
-    response.render<HomePageProps>("home", {
-        metadata: {
-            title: "Home",
-            description: "Home page description"
-        },
-        props: {
-            data: request.params.test
+            {`export class ReaperRequest {
+    private req: Request;
+    data: any = {};
+    headers = () => {
+        return this.req.headers;
+    };
+    cookies = () => {
+        return this.req.cookies;
+    };
+    user = async () => {
+        const authHeader = this.req.headers.authorization;
+        return {
+            id: "" // Implement proper user extraction logic
+        };
+    };
+    auth: Auth;
+    params: { [key: string]: any };
+
+    constructor(req: Request, params: { [key: string]: any }) {
+        this.params = params;
+        this.auth = new Auth(req);
+        this.req = req;
+        if (req.method == "GET") {
+            this.data = req.query;
         }
-    });
+        if (req.method == "POST") {
+            this.data = req.body;
+        }
+    }
+}`}
+        </Code>
+
+        <h2>🔹 ReaperResponse Class</h2>
+        <p>
+            The <code>ReaperResponse</code> class provides methods for sending responses to the client.
+        </p>
+        <ul>
+            <li><strong>render(template, data)</strong>: Renders a template with provided data.</li>
+            <li><strong>status(code)</strong>: Sets the response HTTP status code.</li>
+            <li><strong>text(data)</strong>: Sends a plain text response.</li>
+            <li><strong>json(body)</strong>: Sends a JSON response.</li>
+        </ul>
+        <Code lang={"tsx"}>
+            {`export class ReaperResponse {
+    res: Response;
+    Render: any;
+    constructor(res: Response, Render: any) {
+        this.res = res;
+        this.Render = Render;
+    }
+    render<Props>(template: string, data: Template<Props>) {
+        this.Render(template, data);
+    }
+    status(code: number) {
+        this.res.status(code);
+        return this;
+    }
+    text(data: string) {
+        this.res.send(data);
+    }
+    json(body: any) {
+        this.res.json(body);
+    }
 }`}
         </Code>
 

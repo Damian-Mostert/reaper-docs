@@ -58,3 +58,5 @@ function Icon({ icon }) {
 
     return <span className="text-xl pt-1.5">{icons[icon]}</span>;
 }
+
+Install.parentCategory = "Overview"
