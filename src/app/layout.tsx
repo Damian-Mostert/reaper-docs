@@ -118,7 +118,9 @@ function Main({children}: Readonly<{
 							borderColor:"var(--body-bg)",
 							background:"var(--main)"
 						}}>
+              {/*@ts-ignore*/}
 							{Object.keys(docs).filter(ver=>ver!=v).map(version=>{
+                //@ts-ignore
 								return <Link href={`/docs/${version}/${Object.keys(docs[version])[0]}/${Object.keys(docs[version][Object.keys(docs[version])[0]])[0]}`} className="w-full text-center p-2" key={version}>
 									{version}
 								</Link>
