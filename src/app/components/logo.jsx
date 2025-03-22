@@ -1,5 +1,5 @@
 export default function Logo(){
-    return <></>
+    //return <></>
     return <>
     <div className="w-60 h-0 fixed top-32 right-32 flex items-center justify-center">
     <pre className="absolute" style={{height:"max-content",boxShadow:"none",fontFamily:"reboto",fontWeight:600,scale:0.5,transform:"translateY(600px)"}}>
