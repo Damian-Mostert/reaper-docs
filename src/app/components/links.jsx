@@ -38,7 +38,8 @@ export default function Links({ docs:DOCS }) {
                 open === KEY ? "rotate-180" : "rotate-0"
               }`}
               style={{
-                ...open == KEY?{color:"var(--main-borders)"}:{}
+                ...open == KEY?{color:"var(--main-borders)"}:{},
+                transition:"all 0.5s"
               }}
               fill="none"
               viewBox="0 0 24 24"
@@ -52,10 +53,10 @@ export default function Links({ docs:DOCS }) {
               />
             </svg>
           </div>
-
-          {/* Nested links (only show if parent is open) */}
-          {open === KEY && (
-            <div className="w-full pl-4 p-2 space-y-2">
+          <div className="w-full pl-4 p-2 space-y-2 overflow-hidden" style={{
+            maxHeight:open === KEY?"50vh":"0vh",
+            transition:"all 1s"
+          }}>
               {Object.keys(docs[KEY]).map((url) => (
                 <Link
                   key={`/docs/${v}/${KEY}/${url}`}
@@ -69,7 +70,7 @@ export default function Links({ docs:DOCS }) {
                 </Link>
               ))}
             </div>
-          )}
+          {/* Nested links (only show if parent is open) */}
         </div>
       ))}
     </div>

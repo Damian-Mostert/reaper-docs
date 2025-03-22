@@ -17,7 +17,7 @@ export const useTheme = () => {
 
 // Create the ThemeProvider component
 export const ThemeProvider: React.FC = ({ children }:any) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     const t = localStorage.getItem("theme");

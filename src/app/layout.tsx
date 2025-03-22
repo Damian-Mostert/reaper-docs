@@ -127,11 +127,11 @@ function Main({children}: Readonly<{
 							})}
 						</div>
 					</div> 
-          <div className="cursor-pointer select-none" onClick={toggleTheme} >
+          <div className="cursor-pointer select-none ml-auto lg:ml-0" onClick={toggleTheme} >
             {theme == "light" && "🌕"}
             {theme == "dark" && "🌞"}          
           </div>
-					<span className="text-xs tape">
+					<span className="hidden lg:flex text-xs tape">
 						🚧 Heads up! Reaper.js is still in early development and a bit unstable, so it’s not quite ready for production just yet. Stay tuned for updates!
 					</span>
 					</div>
