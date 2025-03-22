@@ -248,3 +248,12 @@ $yellow:#972d2d;
   font-weight: bold;
   transition: color 0.3s ease-in-out;
 }
+
+@keyframes slideIn {
+  0% {
+    color: var(--body-bg);
+  }
+  100% {
+    color: var(--main-borders);
+  }
+}
