@@ -142,7 +142,7 @@ $yellow:#972d2d;
 .button-flash {
   // background: $yellow;
   border-color: $yellow;
-  color: #fff;
+  color: #fff !important;
   background: {
     image: linear-gradient(45deg,$yellow 50%, transparent 50%);
     position: 100%;

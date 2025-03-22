@@ -33,8 +33,11 @@ export default function Links({ docs }) {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className={`h-5 w-5 transform transition-transform ${
-                open === KEY ? "rotate-180 text-red-600" : "rotate-0"
+                open === KEY ? "rotate-180" : "rotate-0"
               }`}
+              style={{
+                ...open?{color:"var(--main-borders)"}:{}
+              }}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -54,9 +57,10 @@ export default function Links({ docs }) {
               {Object.keys(docs[KEY]).map((url) => (
                 <Link
                   key={url}
-                  className={`block p-2 text-sm transition-colors ${
-                    url === decodeURIComponent(doc) ? "text-red-600" : "text-gray-300"
-                  }`}
+                  className={`block p-2 text-sm transition-colors text-gray-300`}
+                  style={{
+                    ...url === decodeURIComponent(doc)?{color:"var(--main-borders)"}:{}
+                  }}
                   href={url}
                 >
                   {url}
