@@ -49,16 +49,16 @@ export default function RootLayout({
           <script src="https://cdn.jsdelivr.net/gh/edenai/yodabot@e4f753f/embed.js?project=d9b4d182-9eb0-463b-8121-9290c1831678&provider=openai&model=gpt-4o-mini"></script>
         {!doc ? <div className="w-full h-screen flex justify-center items-center"><div className="loader"/><Logo/></div>:<div className="flex flex-col w-screen h-screen">
         <Logo/>  
-        <div className="p-4 w-full z-10 flex gap-4 items-center lg:pl-8" style={{backgroundImage:"linear-gradient(90deg,#111111,#111111,#111111,transparent)"}}>
-          <Image alt="reaper" style={{filter:"invert(100%)"}} width={40} height={50} src={"/reaper.webp"}/>
+        <div className="p-4 w-full z-10 flex flex-wrap lg:flex-nowrap gap-4 items-center lg:pl-8" style={{backgroundImage:"linear-gradient(90deg,#111111,#111111,#111111,transparent)"}}>
           <div className="text-2xl flex items-center w-full gap-4">
+          <Image alt="reaper" style={{filter:"invert(100%)"}} width={40} height={50} src={"/reaper.webp"}/>
           Reaper.js <span 
                       className="text-xs lg:text-sm ml-auto tape"
                     >
                     🚧 Heads up! Reaper.js is still in early development and a bit unstable, so it’s not quite ready for production just yet. Stay tuned for updates!
                     </span>
           </div>
-          <a href="https://www.buymeacoffee.com/damian_" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{maxHeight:"45px",height: "45px !important",width: "217px !important"}} /></a>        </div>        
+          <a className="ml-auto lg:ml-0" href="https://www.buymeacoffee.com/damian_" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{maxHeight:"45px",height: "45px !important",width: "217px !important"}} /></a>        </div>        
         <div className="flex w-full h-full">
         <nav>          
           <Links docs={docs}/>
