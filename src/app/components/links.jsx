@@ -56,9 +56,10 @@ export default function Links({ docs:DOCS }) {
               />
             </svg>
           </div>
-          <div className="w-full pl-4 p-2 space-y-2 overflow-hidden" style={{
+          <div className="w-full pl-4 overflow-hidden" style={{
             maxHeight:open === KEY?"50vh":"0vh",
-            transition:"all 0.7s"
+            transition:"all 0.7s",
+            padding:open == KEY  ? "0.5rem":"0rem"
           }}>
               {Object.keys(docs[KEY]).map((url) => (
                 <Link

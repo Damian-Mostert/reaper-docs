@@ -4,7 +4,7 @@ import { useTheme } from "../hooks/useTheme";
 
 const getRandomColor = (theme: string) => {
   if (theme === "light") {
-    const shade = Math.floor(Math.random() * 40) + 50; // Shades of blue between 50% and 90%
+    const shade = Math.floor(Math.random() * 10) + 30; // Shades of blue between 50% and 90%
     return `hsl(210, 100%, ${shade}%)`; // Blue color (hue: 210)
   }
   const shade = Math.floor(Math.random() * 40) + 50; // Shades of red between 50% and 90%
@@ -22,7 +22,7 @@ const ColoredCode = ({ code,codeStyle,preStyle }: { code: string,codeStyle:any,p
   useEffect(() => {
     const interval = setInterval(() => {
       setColors(prevColors => prevColors.map(() => getRandomColor(theme)));
-    }, 1000); // Change colors every 500ms
+    }, 5000); // Change colors every 500ms
 
     return () => clearInterval(interval);
   }, [theme]);
@@ -31,7 +31,7 @@ const ColoredCode = ({ code,codeStyle,preStyle }: { code: string,codeStyle:any,p
     <pre style={preStyle}>
       <code style={codeStyle}>
         {code.split("").map((char, index) => (
-          <span key={index} style={{ color: colors[index], transition: "color 1s" }}>
+          <span key={index} style={{ color: colors[index], transition: "color 5s" }}>
             {char}
           </span>
         ))}
