@@ -21,7 +21,7 @@ export default function Links({ docs }) {
   }, [doc, docs]); // Depend on `doc` and `docs` to trigger the effect when either changes
 
   return (
-    <div className="w-64 p-2">
+    <div className="w-56 p-2">
       {Object.keys(docs).map((KEY) => (
         <div className="relative flex flex-col mb-4" key={KEY}>
           {/* Category header with hover effect */}

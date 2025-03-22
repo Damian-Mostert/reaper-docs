@@ -27,7 +27,7 @@ export default function RootLayout({
 
   useEffect(()=>{
     if(!doc){
-      router.push(`/docs/${Object.keys(base)[0]}`);
+      router.push(`/docs/fire/${Object.keys(base)[0]}`);
     }
   },[doc]);
   

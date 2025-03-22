@@ -1,6 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
-import {base as docs} from "../../data/docs"
+import {base as docs} from "../../../data/docs"
 export default function Doc() {
     const {doc} = useParams();
     //@ts-ignore;
