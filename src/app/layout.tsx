@@ -105,12 +105,12 @@ function Main({children}: Readonly<{
 				<div className="p-4 w-full z-10 flex flex-wrap lg:flex-nowrap gap-4 items-center lg:pl-8" style={{backgroundImage:"linear-gradient(90deg,var(--main),var(--main),var(--main),transparent)"}}>
 					<div className="text-2xl flex items-center w-full gap-4">
 					<Image onClick={()=>router.push("/")} alt="reaper" style={{filter:theme == "dark"?"invert(100%)":"",cursor:"pointer"}} width={40} height={50} src={"/reaper.webp"}/>
-					Reaper.js
+					<span className="select-none">Reaper.js</span>
 					<div style={{
 							borderColor:"var(--body-bg)",
 							background:"var(--main)"
-						}} className="border p-4 rounded-lg hidden ml-auto text-sm h-max py-2 lg:flex gap-2 relative menu">
-						<div>Version</div>
+						}} className="border p-4 select-none rounded-lg hidden ml-auto text-sm h-max py-2 lg:flex relative menu">
+						<div>v-</div>
 						<div>
 							({v})
 						</div>
@@ -121,13 +121,13 @@ function Main({children}: Readonly<{
               {/*@ts-ignore*/}
 							{Object.keys(docs).filter(ver=>ver!=v).map(version=>{
                 //@ts-ignore
-								return <Link href={`/docs/${version}/${Object.keys(docs[version])[0]}/${Object.keys(docs[version][Object.keys(docs[version])[0]])[0]}`} className="w-full text-center p-2" key={version}>
-									{version}
+								return <Link href={`/docs/${version}/${Object.keys(docs[version])[0]}/${Object.keys(docs[version][Object.keys(docs[version])[0]])[0]}`} className="w-full text-center p-2 text-nowrap" key={version}>
+									v-({version})
 								</Link>
 							})}
 						</div>
 					</div> 
-          <div className="cursor-pointer" onClick={toggleTheme} >
+          <div className="cursor-pointer select-none" onClick={toggleTheme} >
             {theme == "light" && "🌕"}
             {theme == "dark" && "🌞"}          
           </div>
@@ -135,7 +135,7 @@ function Main({children}: Readonly<{
 						🚧 Heads up! Reaper.js is still in early development and a bit unstable, so it’s not quite ready for production just yet. Stay tuned for updates!
 					</span>
 					</div>
-				<a className="hidden lg:inline" href="https://www.buymeacoffee.com/damian_" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{maxHeight:"45px",height: "45px !important",width: "217px !important"}} /></a> </div> 
+				<a className="hidden lg:inline" href="https://www.buymeacoffee.com/damian_" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{maxHeight:"35px",height: "35px !important",width: "max-content !important"}} /></a> </div> 
 				<div className="flex w-full h-full">
 				<nav> 
 					<Links docs={docs}/>

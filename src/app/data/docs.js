@@ -36,17 +36,8 @@ const schema = {
     }
    },
    syth:{
-    Frontend:{
-        Templates:load("templates"),
-        "Template api calls":load("templateApiCalls"),
-        "Template routing":load("templateRouting"),
-    }
-   },
-   syth2:{
-    Frontend:{
-        Templates:load("templates"),
-        "Template api calls":load("templateApiCalls"),
-        "Template routing":load("templateRouting"),
+    "Comming soon":{
+        "Comming soon":load("templates"),
     }
    }
 };
