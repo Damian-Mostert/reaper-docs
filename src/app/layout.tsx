@@ -58,7 +58,7 @@ export default function RootLayout({
                     🚧 Heads up! Reaper.js is still in early development and a bit unstable, so it’s not quite ready for production just yet. Stay tuned for updates!
                     </span>
           </div>
-          <a className="ml-auto lg:ml-0" href="https://www.buymeacoffee.com/damian_" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{maxHeight:"45px",height: "45px !important",width: "217px !important"}} /></a>        </div>        
+          <a className="hidden lg:inline" href="https://www.buymeacoffee.com/damian_" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{maxHeight:"45px",height: "45px !important",width: "217px !important"}} /></a>        </div>        
         <div className="flex w-full h-full">
         <nav>          
           <Links docs={docs}/>
