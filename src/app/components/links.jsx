@@ -61,7 +61,7 @@ export default function Links({ docs:DOCS }) {
                   key={`/docs/${v}/${KEY}/${url}`}
                   className={`block p-2 text-sm transition-colors`}
                   style={{
-                    ...url === decodeURIComponent(doc)?{color:"var(--main-borders)"}:{}
+                    ...url === decodeURIComponent(doc)?{color:"var(--main-borders)"}:{color:"var(--body-text)"}
                   }}
                   href={`/docs/${v}/${KEY}/${url}`}
                 >

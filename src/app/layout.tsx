@@ -104,7 +104,7 @@ function Main({children}: Readonly<{
 				<Logo/> 
 				<div className="p-4 w-full z-10 flex flex-wrap lg:flex-nowrap gap-4 items-center lg:pl-8" style={{backgroundImage:"linear-gradient(90deg,var(--main),var(--main),var(--main),transparent)"}}>
 					<div className="text-2xl flex items-center w-full gap-4">
-					<Image alt="reaper" onClick={toggleTheme} style={{filter:theme == "dark"?"invert(100%)":""}} width={40} height={50} src={"/reaper.webp"}/>
+					<Image alt="reaper" style={{filter:theme == "dark"?"invert(100%)":""}} width={40} height={50} src={"/reaper.webp"}/>
 					Reaper.js
 					<div style={{
 							borderColor:"var(--body-bg)",
@@ -127,6 +127,10 @@ function Main({children}: Readonly<{
 							})}
 						</div>
 					</div> 
+          <div className="cursor-pointer" onClick={toggleTheme} >
+            {theme == "light" && "🌕"}
+            {theme == "dark" && "🌞"}          
+          </div>
 					<span className="text-xs tape">
 						🚧 Heads up! Reaper.js is still in early development and a bit unstable, so it’s not quite ready for production just yet. Stay tuned for updates!
 					</span>
