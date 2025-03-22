@@ -160,7 +160,7 @@ function Main({children}: Readonly<{
 				</div>
 				</div>}
 				<Analytics />
-        {nextDoc && <footer className={`flex items-center absolute bottom-0 -left-20 justify-end animate-${dir}`}>
+        {nextDoc && <footer key={`${k}-footer`}  className={`flex items-center absolute bottom-0 -left-20 justify-end animate-${dir}`}>
 							<div className="w-full justify-end flex items-center gap-4">
 							<div className="w-full text-right text-nowrap" style={{color:"var(--body-text)"}}>Next up</div> 
 							<div className="mt-auto flex justify-end">
