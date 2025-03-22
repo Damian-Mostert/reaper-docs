@@ -44,8 +44,9 @@ export default function RootLayout({
     <html lang="en">
         <head>
           <title>Reaper.js docs</title>
-          <script src="https://cdn.jsdelivr.net/gh/edenai/yodabot@e4f753f/embed.js?project=d9b4d182-9eb0-463b-8121-9290c1831678&provider=openai&model=gpt-4o-mini"></script>        </head>
+          </head>
       <body className={inter.className}>
+          <script src="https://cdn.jsdelivr.net/gh/edenai/yodabot@e4f753f/embed.js?project=d9b4d182-9eb0-463b-8121-9290c1831678&provider=openai&model=gpt-4o-mini"></script>
         {!doc ? <div className="w-full h-screen flex justify-center items-center"><div className="loader"/><Logo/></div>:<div className="flex flex-col w-screen h-screen">
         <Logo/>  
         <div className="p-4 w-full z-10 flex gap-4 items-center lg:pl-8" style={{backgroundImage:"linear-gradient(90deg,#111111,#111111,#111111,transparent)"}}>
@@ -76,7 +77,7 @@ export default function RootLayout({
                 </div>
                 {children}                
              </div>
-            {nextDoc && <footer className={`flex items-center fixed bottom-0 left-0 justify-end animate-${dir}`}>
+            {nextDoc && <footer className={`flex items-center fixed bottom-0 -left-20 justify-end animate-${dir}`}>
                <div className="w-full justify-end flex items-center gap-4">
                <div className="w-full text-right text-nowrap">Next up</div>      
                <div className="mt-auto flex justify-end">
