@@ -25,20 +25,23 @@ export default function Links({ docs:DOCS }) {
   return (
     <div className="w-56 p-2">
       {Object.keys(docs).map((KEY) => (
-        <div className="relative flex flex-col mb-4" key={KEY}>
+        <div className="relative flex flex-col" key={KEY}>
           {/* Category header with hover effect */}
           <div
-            className="w-full p-3 cursor-pointer hover:bg-[#11111130] rounded-lg flex justify-between items-center"
+            className="w-full p-3 relative cursor-pointer hover:bg-[#11111130] rounded-lg flex items-center"
             onClick={() => setOpen(KEY === open ? null : KEY)}
+            style={{
+                ...open == KEY?{color:"var(--main-borders)"}:{},
+            }}
           >
-            <span className="font-semibold text-lg">{KEY}</span>
+            <div className="font-semibold text-lg text-center w-full">{KEY}</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className={`h-5 w-5 transform transition-transform ${
+              className={`h-5 w-5 transform absolute right-4 transition-transform ${
                 open === KEY ? "rotate-180" : "rotate-0"
               }`}
               style={{
-                ...open == KEY?{color:"var(--main-borders)"}:{},
+                
                 transition:"all 0.5s"
               }}
               fill="none"
@@ -55,12 +58,12 @@ export default function Links({ docs:DOCS }) {
           </div>
           <div className="w-full pl-4 p-2 space-y-2 overflow-hidden" style={{
             maxHeight:open === KEY?"50vh":"0vh",
-            transition:"all 1s"
+            transition:"all 0.7s"
           }}>
               {Object.keys(docs[KEY]).map((url) => (
                 <Link
                   key={`/docs/${v}/${KEY}/${url}`}
-                  className={`block p-2 text-sm transition-colors`}
+                  className={`block p-2 text-sm transition-colors w-full text-center`}
                   style={{
                     ...url === decodeURIComponent(doc)?{color:"var(--main-borders)"}:{color:"var(--body-text)"}
                   }}
