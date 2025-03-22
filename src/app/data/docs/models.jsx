@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function ComingSoonPage() {
     const [email, setEmail] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         alert(`Thank you for subscribing! Updates will be sent to: ${email}`);
         setEmail('');
