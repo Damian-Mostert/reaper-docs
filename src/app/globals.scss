@@ -191,3 +191,10 @@ $yellow:#972d2d;
   75%,
   100%  {-webkit-mask-size:0    0  ,0    0  ,0    0  ,auto}
 }
+.tape{
+  --a:#e9c12050;
+  --b:#facc1550;
+  color: white;
+  background: repeating-linear-gradient(45deg, var(--a), var(--a) 12px, var(--b) 12px, var(--b) 24px) !important;
+  @apply border-2 border-yellow-500 px-4 py-2 font-extrabold rounded-md;
+}
