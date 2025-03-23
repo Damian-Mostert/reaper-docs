@@ -18,19 +18,19 @@ DB_NAME=            # Database name`}
             <Section title="Server" icon="server">
                 <p><code>SERVER_PORT</code> sets the runtime port for the server.</p>
                 <Code lang="ini">
-                    {`PORT=5050   # Server port`}
+                    {`SERVER_PORT=5050   # Server port`}
                 </Code>
 
                 <p><code>SERVER_SECRET</code> is used to encrypt and decrypt database values.</p>
                 <Code lang="ini">
-                    {`BE_SECRET=testsecret`}
+                    {`SERVER_SECRET=testsecret`}
                 </Code>
             </Section>
 
             <Section title="App" icon="app">
-                <p>Environment variables prefixed with <code>REAPER_APP_</code> will be accessible in client-side templates.</p>
+                <p>Environment variables prefixed with <code>APP_</code> will be accessible in client-side templates aswell.</p>
                 <Code lang="ini">
-                    {`REAPER_APP_VAR=""`}
+                    {`APP_VAR=""`}
                 </Code>
             </Section>
         </>
