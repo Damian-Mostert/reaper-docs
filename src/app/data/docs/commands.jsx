@@ -16,7 +16,7 @@ Reaper.js [2:28:12 PM] ⠏ Building server...`}
             <Section title="🚀 Start" description="Starts a built server.">
                 <Command code="npm start" alternative="npx reaperjs start" />
                 <ExampleOutput>
-                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
+                    {`Reaper.js [9:14:40 PM] ✔ Server is running on port 5050`}
                 </ExampleOutput>
             </Section>
 
