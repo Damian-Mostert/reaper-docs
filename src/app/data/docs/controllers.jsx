@@ -16,7 +16,7 @@ export default function Controllers(){
             {`import { Controller } from "rprcli";
 
 const pageController: Controller = {
-    async home(request, response) {
+    async home(request, response, next) {
         response.render("home", {
             metadata: {
                 title: "Home",
@@ -27,7 +27,7 @@ const pageController: Controller = {
             }
         });
     },
-    async test(request, response) {
+    async test(request, response, next) {
         response.render("test", {
             metadata: {
                 title: "Test",
@@ -155,11 +155,39 @@ export default pageController;`}
 }`}
         </Code>
 
+        <h2>🔹 The next Function</h2>
+        <p>
+            The <code>next</code> function allows you to skip the current controller and proceed to the next middleware or controller in the stack. This is useful when you need to defer the response to the next function or if certain conditions are not met.
+        </p>
+        <ul>
+            <li><strong>Flow Control</strong>: If you don't respond to the request within the current controller, you can call <code>next()</code> to pass the request to the next handler.</li>
+            <li><strong>Skipping Logic</strong>: When a condition is not met (e.g., failed validation or missing data), you can call <code>next()</code> to skip the current controller and continue with the next available handler.</li>
+        </ul>
+
+        <h2>🔹 Skipping Controllers with next</h2>
+        <p>
+            The <code>next()</code> function is commonly used to skip the current controller. If the request doesn't meet certain criteria, the controller can call <code>next()</code> to defer handling to the next controller in the chain.
+        </p>
+        <Code lang={"tsx"}>
+            {`async home(request, response, next) {
+    // If some condition fails, skip this controller
+    if (someConditionFails) {
+        return next();  // Skip and move to the next controller
+    }
+
+    response.render("home", {
+        metadata: { title: "Home Page" },
+        props: { data: request.params.test }
+    });
+}`}
+        </Code>
+
         <h2>📌 Best Practices for Controllers</h2>
         <ul>
             <li>✅ **Organize** controllers by feature (e.g., separate controllers for users, posts, etc.).</li>
             <li>✅ **Validate** inputs and request parameters before using them in logic.</li>
-            <li>✅ **Use middleware** to protect routes that need authentication or authorization checks.</li>
+            <li>✅ **Use middleware** to protect routes that require authentication or authorization checks.</li>
+            <li>✅ **Use next() for flow control**: Make sure to call <code>next()</code> to skip controllers when certain conditions are not met, or to defer to the next middleware or controller.</li>
         </ul>
 
         <h2>🔗 Next Steps</h2>
