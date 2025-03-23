@@ -28,7 +28,7 @@ ol {
 }
 
 body {
-  @apply bg-[var(--body-bg)] text-[var(--body-text)] flex w-screen h-screen;
+  @apply bg-[var(--body-bg)] text-[var(--body-text)] flex w-screen h-screen overflow-hidden;
 }
 nav{
  @apply hidden lg:block h-full w-max bg-[var(--main)] shadow-xl;
