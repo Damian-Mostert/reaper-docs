@@ -30,14 +30,34 @@ Reaper.js [2:28:12 PM] ⠏ Building server...`}
             <Section title="🗄️ Migrate" description="Runs new database migrations.">
                 <Command code="npm run migrate" alternative="npx reaperjs migrate" />
                 <ExampleOutput>
-                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
+                    {`Reaper.js [8:34:02 PM] ℹ INFO: Running latest migrations [/Users/damian/Documents/GitHub/reaper-sample/.reaper/out/migrations/1742734171077_authTokens.js, /Users/damian/Documents/GitHub/reaper-sample/.reaper/out/migrations/1742734179026_users.js]
+Reaper.js [8:34:02 PM] ✔ SUCCESS: All migrations executed successfully!
+Reaper.js [8:34:02 PM] ✔ SUCCESS: Database 'reaper-test' already exists.
+Reaper.js [8:34:02 PM] ✔ SUCCESS: Database 'reaper-test' already exists.
+Reaper.js [8:34:02 PM] ✔ Done building query.
+Reaper.js [8:34:02 PM] ℹ INFO: Running query: 
+Reaper.js [8:34:02 PM] ✔ SUCCESS: Done.
+Reaper.js [8:34:02 PM] ✔ Done building query.
+Reaper.js [8:34:02 PM] ℹ INFO: Running query: 
+Reaper.js [8:34:02 PM] ✔ SUCCESS: Done.`}
                 </ExampleOutput>
             </Section>
 
             <Section title="↩️ Rollback" description="Undoes the last migration.">
                 <Command code="npm run rollback" alternative="npx reaperjs rollback" />
                 <ExampleOutput>
-                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
+                    {`Reaper.js [8:34:35 PM] ℹ INFO: Rolling back last batch of migrations...
+Reaper.js [8:34:35 PM] ℹ INFO: Executing rollback command in /Users/damian/Documents/GitHub/reaper-sample/.reaper/out/migrations/1742734171077_authTokens.js
+Reaper.js [8:34:35 PM] ℹ INFO: Executing rollback command in /Users/damian/Documents/GitHub/reaper-sample/.reaper/out/migrations/1742734179026_users.js
+Reaper.js [8:34:35 PM] ✔ SUCCESS: ReaperAll applicable migrations rolled back successfully!
+Reaper.js [8:34:35 PM] ✔ SUCCESS: Database 'reaper-test' already exists.
+Reaper.js [8:34:35 PM] ✔ SUCCESS: Database 'reaper-test' already exists.
+Reaper.js [8:34:35 PM] ✔ Done building query.
+Reaper.js [8:34:35 PM] ℹ INFO: Running query: DROP TABLE IF EXISTS \`authTokens\`
+Reaper.js [8:34:35 PM] ✔ Done building query.
+Reaper.js [8:34:35 PM] ℹ INFO: Running query: DROP TABLE IF EXISTS \`users\`
+Reaper.js [8:34:35 PM] ✔ SUCCESS: Done.
+Reaper.js [8:34:35 PM] ✔ SUCCESS: Done.`}
                 </ExampleOutput>
             </Section>
 
@@ -47,7 +67,8 @@ Reaper.js [2:28:12 PM] ⠏ Building server...`}
                 <p>To execute a single seeder use:</p>
                 <Command code="npm run seed {name}" alternative="npx reaperjs seed {name}" />
                 <ExampleOutput>
-                    {`Reaper.js [2:29:57 PM] ✔ Client and server built.`}
+                    {`Reaper.js [8:35:19 PM] ✔ Seeders compiled: [usersSeeder.js]
+usersSeeder is done.`}
                 </ExampleOutput>
             </Section>
 
