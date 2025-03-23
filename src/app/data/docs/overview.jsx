@@ -20,11 +20,9 @@ export default function Overview() {
             <Code lang="bash">{`mkdir reaperProject
 cd ./reaperProject
 npm i reaperjs && npx reaperjs init && npm i`}</Code>
-            
             <p>
                 You will now see the Reaper project structure in your directory.
             </p>
-            
             <Code lang="bash">
                 {`- api
     - controllers
