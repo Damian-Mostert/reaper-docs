@@ -14,9 +14,7 @@ export default function ServicesDocs() {
         </p>
         <Code lang="tsx">
             {`// services/emailService.ts
-import { Service } from "reaperjs";
-
-const emailService: Service = {
+const emailService = {
     sendEmail: async (to: string, subject: string, body: string) => {
         // Logic to send email
         console.log(\`Sending email to \${to}\`);
@@ -33,7 +31,7 @@ export default emailService;`}
         <Code lang="tsx">
             {`// controllers/userController.ts
 import { Controller } from "reaperjs";
-import emailService from "@/services/emailService";
+import emailService from "api/services/emailService";
 
 const userController: Controller = {
     register: async (request, response) => {
