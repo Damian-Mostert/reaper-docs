@@ -33,7 +33,7 @@ export default emailService;`}
 import { Controller } from "reaperjs";
 import emailService from "api/services/emailService";
 
-const userController: Controller = {
+const userController: Controller<"register"> = {
     register: async (request, response) => {
         // Registration logic
         await emailService.sendEmail("user@example.com", "Welcome", "Thanks for registering!");

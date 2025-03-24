@@ -15,7 +15,7 @@ export default function Controllers(){
         <Code lang={"tsx"}>
             {`import { Controller } from "rprcli";
 
-const pageController: Controller = {
+const pageController: Controller<"home"|"test"> = {
     async home(request, response, next) {
         response.render("home", {
             metadata: {
