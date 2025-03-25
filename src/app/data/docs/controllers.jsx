@@ -42,7 +42,30 @@ const pageController: Controller<"home"|"test"> = {
 
 export default pageController;`}
         </Code>
-
+        <h4>Views metadata object type</h4>
+        <Code lang="tsx">{`export interface Metadata {
+    title?: string;
+    description?: string;
+    author?: string;
+    keywords?: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    ogUrl?: string;
+    twitterCard?: string;
+    twitterTitle?: string;
+    twitterDescription?: string;
+    twitterImage?: string;
+    favicon?: string;
+}`}</Code>
+        <h4>
+            Props
+        </h4>
+        <p>Your template can be found in {"\"app/views/{name}View\""}. Your props will be directly passed to the default export of your view</p>
+        <Code lang="tsx">{`
+export default function View({data}:ViewPropsType){
+    return <></>
+}`}</Code>
         <h2>🔹 ReaperRequest Class</h2>
         <p>
             The <code>ReaperRequest</code> class is a wrapper around the incoming request, providing structured access to request parameters, authentication, and headers.
